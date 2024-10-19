@@ -1,11 +1,11 @@
 import torch
-import torch.nn.functional as F  # Parameterless functions, like (some) activation functions
-import torchvision.datasets as datasets  # Standard datasets
-import torchvision.transforms as transforms  # Transformations we can perform on our dataset for augmentation
-from torch import optim  # For optimizers like SGD, Adam, etc.
-from torch import nn  # All neural network modules
-from torch.utils.data import Dataset, DataLoader # Gives easier dataset managment by creating mini batches etc.
-from tqdm import tqdm  # For nice progress bar!
+import torch.nn.functional as F  
+import torchvision.datasets as datasets 
+import torchvision.transforms as transforms 
+from torch import optim 
+from torch import nn  
+from torch.utils.data import Dataset, DataLoader
+from tqdm import tqdm 
 import os
 import numpy as np
 import random
@@ -106,13 +106,13 @@ class ImageFolder(Dataset):
         # Load Data
         self.transform_train = transforms.Compose(
             [  # Compose makes it possible to have many transforms
-                transforms.ToTensor(),  # Finally converts PIL image to tensor so we can train w. pytorch
-                transforms.Resize((224, 224)),  # Resizes (32,32) to (36,36)
-                transforms.ColorJitter(brightness=0.5),  # Change brightness of image
+                transforms.ToTensor(), 
+                transforms.Resize((224, 224)),  
+                transforms.ColorJitter(brightness=0.5), 
                 transforms.RandomRotation(
                     degrees=10
-                ),  # Perhaps a random rotation from -45 to 45 degrees
-                transforms.RandomGrayscale(p=0.2),  # Converts to grayscale with probability 0.2
+                ), 
+                transforms.RandomGrayscale(p=0.2),  
                 transforms.Normalize(
                     mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]
                 ),  # Note: change this value
@@ -120,8 +120,8 @@ class ImageFolder(Dataset):
         )
         self.transform_test = transforms.Compose(
             [  # Compose makes it possible to have many transforms
-                transforms.ToTensor(),  # Finally converts PIL image to tensor so we can train w. pytorch
-                transforms.Resize((224, 224)),  # Resizes (32,32) to (36,36)
+                transforms.ToTensor(), 
+                transforms.Resize((224, 224)), 
                 transforms.Normalize(
                     mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5]
                 ),  # Note: change this value
