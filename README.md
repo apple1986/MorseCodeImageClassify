@@ -1,4 +1,4 @@
-# MorseCodeImageClassify
+# Morse Code Image Classification
 
 This repository provides a **Morse code image dataset** and a demo for image classification using a noise-adaptive network.
 
